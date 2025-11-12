@@ -1,0 +1,593 @@
+/* Hero Principal */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--background-darker);
+  color: var(--text-primary);
+}
+
+/* Background com Elementos Decorativos */
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gradientOrbit {
+  position: absolute;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  border-radius: 50%;
+  animation: orbit 20s linear infinite;
+}
+
+.gradientOrbit:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -200px;
+}
+
+.orbit2 {
+  width: 400px !important;
+  height: 400px !important;
+  top: 50% !important;
+  left: -100px !important;
+  animation-duration: 15s !important;
+  animation-direction: reverse !important;
+  border-color: rgba(6, 182, 212, 0.08) !important;
+}
+
+/* Container da Imagem - Desktop */
+.claraImageContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.claraImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Overlay Desktop - Gradiente Suave */
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--background-darker) 0%,
+    rgba(2, 6, 23, 0.9) 10%,
+    rgba(2, 6, 23, 0.6) 25%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+/* Overlay Mobile - Mais Escuro para Legibilidade */
+.imageOverlayMobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.2) 0%,
+    rgba(2, 6, 23, 0.7) 40%,
+    rgba(2, 6, 23, 0.9) 70%,
+    var(--background-darker) 100%
+  );
+  pointer-events: none;
+}
+
+/* Container Principal */
+.heroContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Conteúdo de Texto */
+.heroContent {
+  max-width: 600px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.heroBadge span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-light);
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--text-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleHighlight {
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+/* Botões de Ação */
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.btnHoverEffect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btnPrimary:hover .btnHoverEffect {
+  left: 100%;
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Destaques */
+.heroHighlights {
+  display: flex;
+  gap: 2rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.highlightIcon {
+  font-size: 1.5rem;
+}
+
+.highlightNumber {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.highlightText {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Lado Visual - Desktop Only */
+.heroVisual {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.abstractVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.visualOrb:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  background: var(--primary-color);
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.visualOrb:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  background: var(--secondary-color);
+  top: 60%;
+  right: 30%;
+  animation-delay: 2s;
+}
+
+.visualOrb:nth-child(3) {
+  width: 180px;
+  height: 180px;
+  background: var(--accent-color);
+  bottom: 20%;
+  left: 40%;
+  animation-delay: 4s;
+}
+
+/* Scroll Indicator com React Icons */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.scrollIcon {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  animation: bounce 2s infinite;
+  transition: color 0.3s ease;
+}
+
+.scrollIndicator:hover .scrollIcon {
+  color: var(--primary-light);
+}
+
+/* Animações */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: 2.75rem;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
+  /* Ajuste do overlay para tablet */
+  .imageOverlay {
+    background: linear-gradient(
+      90deg,
+      var(--background-darker) 0%,
+      rgba(2, 6, 23, 0.95) 20%,
+      rgba(2, 6, 23, 0.8) 40%,
+      transparent 70%
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  /* Estilo Netflix para Mobile - CORRIGIDO */
+  .hero {
+    min-height: 100vh;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+    background: var(--background-darker);
+  }
+
+  .heroContainer {
+    padding: 0 1.5rem;
+    text-align: center;
+    align-items: flex-end;
+  }
+
+  .claraImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .claraImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.1);
+  }
+
+  /* Overlay desktop escondido no mobile */
+  .imageOverlay {
+    display: none;
+  }
+
+  /* Overlay mobile ativado - MAIS ESCURO */
+  .imageOverlayMobile {
+    display: block;
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 6, 23, 0.3) 0%,
+      rgba(2, 6, 23, 0.8) 30%,
+      rgba(2, 6, 23, 0.95) 60%,
+      var(--background-darker) 95%
+    );
+  }
+
+  .heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .heroSubtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+  }
+
+  .heroBadge {
+    background: rgba(124, 58, 237, 0.3);
+    border-color: rgba(124, 58, 237, 0.5);
+    backdrop-filter: blur(20px);
+  }
+
+  .heroActions {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .heroHighlights {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .highlightItem {
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    min-width: 120px;
+  }
+
+  .highlightNumber,
+  .highlightText {
+    color: var(--text-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-bottom: 2rem;
+  }
+
+  .heroContainer {
+    padding: 2rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.875rem 1.5rem;
+  }
+
+  .heroHighlights {
+    gap: 1rem;
+  }
+
+  .highlightItem {
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    min-width: 100px;
+  }
+
+  .scrollIndicator {
+    bottom: 1rem;
+  }
+
+  /* Overlay ainda mais escuro no mobile muito pequeno */
+  .imageOverlayMobile {
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 6, 23, 0.2) 0%,
+      rgba(2, 6, 23, 0.85) 20%,
+      rgba(2, 6, 23, 0.95) 50%,
+      var(--background-darker) 90%
+    );
+  }
+}
+
+/* Efeito de fade para conteúdo no mobile */
+@media (max-width: 768px) {
+  .heroContent {
+    animation: contentFadeIn 1.2s ease-out 0.3s both;
+  }
+
+  @keyframes contentFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
