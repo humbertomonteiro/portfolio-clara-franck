@@ -25,7 +25,6 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick, onPortfolioClick }) => {
         <div className={styles.gradientOrbit}></div>
         <div className={`${styles.gradientOrbit} ${styles.orbit2}`}></div>
 
-        {/* Imagem da Clara */}
         <div className={styles.claraImageContainer}>
           <img
             src={claraImage}
