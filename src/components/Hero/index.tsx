@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick, onPortfolioClick }) => {
           </div>
 
           {/* Destaques */}
-          <div className={styles.heroHighlights}>
+          {/* <div className={styles.heroHighlights}>
             <div className={styles.highlightItem}>
               <div className={styles.highlightIcon}>🎯</div>
               <div>
@@ -87,7 +87,7 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick, onPortfolioClick }) => {
                 <div className={styles.highlightText}>Avaliação</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Visual Side - Desktop Only */}
