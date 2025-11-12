@@ -568,9 +568,8 @@
   .imageOverlayMobile {
     background: linear-gradient(
       to bottom,
-      rgba(2, 6, 23, 0.2) 0%,
-      rgba(2, 6, 23, 0.377) 20%,
-      rgba(2, 6, 23, 0.726) 50%,
+      rgba(2, 6, 23, 0) 20%,
+      rgba(2, 6, 23, 0.452) 50%,
       var(--background-darker) 90%
     );
   }
