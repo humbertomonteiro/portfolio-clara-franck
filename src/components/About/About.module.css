@@ -8,7 +8,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 1fr;
   align-items: center;
   gap: 6rem;
   max-width: 1200px;
@@ -228,7 +228,7 @@
   }
 
   .imageWrapper {
-    max-width: 500px;
+    max-width: 300px;
     margin: 0 auto;
     transform: none;
   }
