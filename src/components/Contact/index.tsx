@@ -30,15 +30,25 @@ export default function Contact() {
           </p>
 
           <div className={styles.infoList}>
-            <div className={styles.infoItem}>
+            <a
+              href="https://"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.infoItem}
+            >
               <FaEnvelope className={styles.icon} />
               <span>contato@clarafranck.com.br</span>
-            </div>
+            </a>
 
-            <div className={styles.infoItem}>
+            <a
+              href="https://wa.me/5585987780766"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.infoItem}
+            >
               <FaWhatsapp className={styles.icon} />
               <span>(85) 98778-0766</span>
-            </div>
+            </a>
 
             <a
               href="https://instagram.com/cenomagia"

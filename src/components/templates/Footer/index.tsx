@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import loopBlack from "../../../assets/gifs/loop-black.gif";
 
 const Footer: React.FC = () => {
   return (
@@ -8,9 +9,10 @@ const Footer: React.FC = () => {
         {/* Nome / Marca */}
         <div className={styles.brand}>
           <h3 className={styles.logo}>
-            Clara <span>Franck</span>
+            {/* Clara <span>Franck</span> */}
+            <img src={loopBlack} alt="animação" className={styles.loopBlack} />
           </h3>
-          <p className={styles.description}>Produção | Eventos | Lifestyle</p>
+          {/* <p className={styles.description}>Produção | Eventos | Lifestyle</p> */}
         </div>
 
         {/* Navegação */}

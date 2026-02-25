@@ -1,80 +1,81 @@
-import React from "react";
+// About.tsx
+import React, { useEffect, useRef } from "react";
 import styles from "./About.module.css";
 import claraAboutImage from "../../assets/clara-image.png";
+import logo from "../../assets/logos/logo-name.png";
+import loopWhite from "../../assets/gifs/loop-white.gif";
 
 const About: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className={styles.about} id="about">
+    <section ref={sectionRef} className={styles.section} id="about">
       <div className={styles.container}>
-        {/* Lado Esquerdo: Imagem */}
-        <div className={styles.imageSection}>
-          <div className={styles.imageWrapper}>
+        {/* Lado esquerdo - Imagem */}
+        <div className={styles.imageWrapper}>
+          <div className={styles.imageBorder}>
             <img
               src={claraAboutImage}
-              alt="Clara Franck em evento"
-              className={styles.aboutImage}
+              alt="Clara Franck"
+              className={styles.image}
+              loading="lazy"
             />
-            <div className={styles.imageDecoration}></div>
           </div>
         </div>
 
-        {/* Lado Direito: Texto */}
-        <div className={styles.textSection}>
-          <div className={styles.textContent}>
-            <div className={styles.titleWrapper}>
-              <span className={styles.subtitle}>Conheça</span>
-              <h2 className={styles.title}>
-                Clara <span className={styles.highlight}>Franck</span>
-              </h2>
-              <div className={styles.titleLine}></div>
-            </div>
+        {/* Lado direito - Conteúdo */}
+        <div className={styles.content}>
+          <span className={styles.subtitle}>Sobre</span>
 
-            <div className={styles.paragraphs}>
-              <div className={styles.paragraph}>
-                <div className={styles.paragraphIcon}>✦</div>
-                <p>
-                  Clara Franck é empresária à frente da{" "}
-                  <strong>
-                    Cenomagia, For You Eventos, Vila Tabajara, Casa Santa
-                    Flecheiras
-                  </strong>{" "}
-                  e sócia local nos renomados <strong>Ninetto</strong> e{" "}
-                  <strong>Tatu Bola</strong>, entre outros, referências em
-                  entretenimento e lifestyle no Ceará.
-                </p>
-              </div>
+          {/* <h2 className={styles.title}>Clara Franck</h2> */}
+          <img src={logo} alt="Logo" className={styles.logo} />
 
-              <div className={styles.paragraph}>
-                <div className={styles.paragraphIcon}>✦</div>
-                <p>
-                  Com uma trajetória marcada por autenticidade e visão criativa,
-                  Clara assina produções que se tornaram ícones da cena
-                  cearense, como <strong>Camarote Mucuripe</strong>,{" "}
-                  <strong>Santa Flecheiras</strong>,
-                  <strong> Bloquinho de Verão</strong> e{" "}
-                  <strong>HallowYou</strong>, entre outras.
-                </p>
-              </div>
+          <div className={styles.bio}>
+            <p className={styles.paragraph}>
+              Empresária à frente da <strong>Cenomagia</strong>,{" "}
+              <strong>For You Eventos</strong>, <strong>Vila Tabajara</strong>,{" "}
+              <strong>Casa Santa Flecheiras</strong> e sócia local nos renomados{" "}
+              <strong>Ninetto</strong> e <strong>Tatu Bola</strong>.
+            </p>
 
-              <div className={styles.paragraph}>
-                <div className={styles.paragraphIcon}>✦</div>
-                <p>
-                  Mais do que eventos, ela cria{" "}
-                  <strong>experiências que conectam pessoas</strong>, despertam
-                  emoções e celebram o melhor da vida — sempre com a essência
-                  que define seu trabalho: transformar momentos em{" "}
-                  <strong>memórias inesquecíveis</strong>.
-                </p>
-              </div>
-            </div>
+            <p className={styles.paragraph}>
+              Assina produções que se tornaram ícones da cena cearense, como{" "}
+              <strong>Camarote Mucuripe</strong>,{" "}
+              <strong>Santa Flecheiras</strong>,{" "}
+              <strong>Bloquinho de Verão</strong> e <strong>HallowYou</strong>.
+            </p>
 
-            <div className={styles.signature}>
-              <div className={styles.signatureLine}></div>
-              <span className={styles.signatureText}>Visão e Criatividade</span>
-            </div>
+            <p className={styles.paragraph}>
+              Cria <strong>experiências que conectam pessoas</strong> e
+              transformam momentos em memórias inesquecíveis.
+            </p>
           </div>
         </div>
       </div>
+      <img src={loopWhite} alt="Animação" className={styles.loopWhite} />
     </section>
   );
 };

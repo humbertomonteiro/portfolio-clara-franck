@@ -33,7 +33,6 @@
 .logo span {
   font-weight: 600;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -63,7 +62,10 @@
   font-size: 0.85rem;
   color: #999;
   text-align: right;
-  flex: 1;
+}
+
+.loopBlack {
+  width: 150px;
 }
 
 @media (max-width: 768px) {
