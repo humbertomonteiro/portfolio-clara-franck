@@ -29,6 +29,7 @@ export default function Hero() {
           src={img}
           alt="Evento"
           className={index === current ? styles.activeSlide : styles.slide}
+          loading="lazy"
         />
       ))}
 

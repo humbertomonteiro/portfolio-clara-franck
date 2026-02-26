@@ -238,6 +238,14 @@
   animation-delay: 0.4s;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .line1,
+  .line2,
+  .line3 {
+    display: none;
+  }
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .content h1 {

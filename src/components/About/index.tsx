@@ -48,7 +48,7 @@ const About: React.FC = () => {
 
         {/* Lado direito - Conteúdo */}
         <div className={styles.content}>
-          <span className={styles.subtitle}>Sobre</span>
+          <h2 className={styles.subtitle}>Sobre</h2>
 
           {/* <h2 className={styles.title}>Clara Franck</h2> */}
           <img src={logo} alt="Logo" className={styles.logo} />
