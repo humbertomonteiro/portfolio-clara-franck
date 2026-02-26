@@ -40,7 +40,7 @@
 .title span {
   font-weight: 600;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
 }
 
@@ -92,7 +92,7 @@
 
 .form {
   background: #fafafa;
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   animation: fadeInUp 1s ease-out both;

@@ -46,7 +46,7 @@ export default function Hero() {
           <button className={styles.primary}>Organizar meu evento</button>
           <button className={styles.secondary}>Falar com especialista</button>
         </div>
-        <div className={styles.dots}>
+        {/* <div className={styles.dots}>
           {images.map((_, index) => (
             <span
               key={index}
@@ -54,7 +54,7 @@ export default function Hero() {
               onClick={() => setCurrent(index)}
             />
           ))}
-        </div>
+        </div> */}
       </div>
       {/* </div> */}
 
