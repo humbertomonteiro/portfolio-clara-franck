@@ -5,7 +5,7 @@ import event2 from "../../assets/events/event2.jpg";
 import event3 from "../../assets/events/event3.jpg";
 import event4 from "../../assets/events/event4.jpg";
 import event5 from "../../assets/events/event5.jpg";
-import logo from "../../assets/logos/logo-no-bg.png";
+import logo from "../../assets/gifs/loop-infinit.gif";
 import CarouselScrollInfinit from "../shared/CarouselScrollInfinity";
 
 const images = [event1, event2, event3, event4, event5];
