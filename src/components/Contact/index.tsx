@@ -1,6 +1,5 @@
 import styles from "./Contact.module.css";
 import { useState } from "react";
-
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
@@ -18,28 +17,21 @@ export default function Contact() {
       <div className={styles.container}>
         {/* Texto */}
         <div className={styles.textContent}>
-          <span className={styles.subtitle}>Fale Conosco</span>
+          <div className={styles.label}>
+            <div className={styles.labelLine}></div>
+            <span className={styles.subtitle}>Fale Conosco</span>
+          </div>
+
           <h2 className={styles.title}>
-            Entre em <span>Contato</span>
+            Seja claro(a), fale com a <span>Clara</span>
           </h2>
-          <div className={styles.titleLine}></div>
 
           <p className={styles.description}>
             Vamos transformar suas ideias em um cenário memorável. Fale com a
             nossa equipe e solicite um orçamento personalizado.
           </p>
 
-          <div className={styles.infoList}>
-            <a
-              href="https://"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.infoItem}
-            >
-              <FaEnvelope className={styles.icon} />
-              <span>contato@clarafranck.com.br</span>
-            </a>
-
+          {/* <div className={styles.infoList}>
             <a
               href="https://wa.me/5585987780766"
               target="_blank"
@@ -59,7 +51,17 @@ export default function Contact() {
               <FaInstagram className={styles.icon} />
               <span>@cenomagia</span>
             </a>
-          </div>
+
+            <a
+              href="mailto:contato@clarafranck.com.br"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.infoItem}
+            >
+              <FaEnvelope className={styles.icon} />
+              <span>contato@clarafranck.com.br</span>
+            </a>
+          </div> */}
         </div>
 
         {/* Formulário */}
@@ -80,7 +82,7 @@ export default function Contact() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="seuemail@email..."
+              placeholder="seuemail@email.com"
             />
           </div>
 
@@ -94,7 +96,7 @@ export default function Contact() {
           </div>
 
           <button type="submit" className={styles.button}>
-            Enviar Mensagem
+            <span>Enviar Mensagem</span>
           </button>
         </form>
       </div>

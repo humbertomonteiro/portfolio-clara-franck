@@ -1,63 +1,29 @@
 import styles from "./caroselScrollInfinit.module.css";
 
+const items = [
+  "Produção de Eventos",
+  "Clara Franck",
+  "Cenomagia",
+  "For You Eventos",
+  "Vila Tabajara",
+  "Camarote Mucuripe",
+  "HallowYou",
+  "Santa Flecheiras",
+];
+
 const CarouselScrollInfinit = () => {
+  const doubled = [...items, ...items];
+
   return (
-    <section>
-      <div className={styles.carousel}>
-        <div className={styles.group}>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-        </div>
-        <div arial-hidden="true" className={styles.group}>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-          <div className={styles.black}>
-            <strong>@</strong>
-            <span>CLARAFRANCK</span>
-          </div>
-        </div>
+    <div className={styles.wrapper}>
+      <div className={styles.track}>
+        {doubled.map((item, i) => (
+          <span key={i} className={styles.item}>
+            {item}
+          </span>
+        ))}
       </div>
-      {/* <div className={styles.button}>
-        <ButtonPrimary
-          link="https://www.sympla.com.br/evento/conexao-ragazzi/2999636"
-          target={true}
-        >
-          Comprar agora
-        </ButtonPrimary>
-      </div> */}
-    </section>
+    </div>
   );
 };
 

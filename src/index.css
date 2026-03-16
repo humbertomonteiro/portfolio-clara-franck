@@ -1,56 +1,69 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
 
 :root {
-  --primary-color: #06b885;
-  --primary-dark: #03835f;
-  --primary-light: #03d89c;
+  --primary-color: #c9a96e;
+  --primary-dark: #9e7b47;
+  --primary-light: #e8cfa0;
   --secondary-color: #ff0469;
-  --accent-color: #f59e0b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-black: #000;
-  --background-dark: #0f172a;
-  --background-darker: #020617;
-  --background-light: #1e293b;
-  --border-radius: 12px;
-  --border-radius-lg: 20px;
-  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  --accent-color: #c9a96e;
+  --text-primary: #f5f0e8;
+  --text-secondary: #b8b0a4;
+  --text-muted: #6b655e;
+  --text-black: #0a0804;
+  --background-dark: #0a0804;
+  --background-darker: #050301;
+  --background-light: #131008;
+  --background-card: #100d07;
+  --gold-gradient: linear-gradient(
+    135deg,
+    #c9a96e 0%,
+    #e8cfa0 50%,
+    #9e7b47 100%
+  );
+  --border-subtle: rgba(201, 169, 110, 0.12);
+  --border-gold: rgba(201, 169, 110, 0.35);
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 35px 60px -15px rgba(0, 0, 0, 0.85);
+  --shadow-gold: 0 0 40px rgba(201, 169, 110, 0.15);
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "DM Sans", sans-serif;
   line-height: 1.6;
-  color: #f8fafc;
-  background: #0f172a;
+  color: var(--text-primary);
+  background: var(--background-darker);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--background-darker);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--primary-light);
+}
+::selection {
+  background: rgba(201, 169, 110, 0.3);
+  color: var(--text-primary);
 }

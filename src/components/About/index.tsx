@@ -17,24 +17,19 @@ const About: React.FC = () => {
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
   return (
     <section ref={sectionRef} className={styles.section} id="about">
       <div className={styles.container}>
-        {/* Lado esquerdo - Imagem */}
+        {/* Imagem */}
         <div className={styles.imageWrapper}>
           <div className={styles.imageBorder}>
             <img
@@ -46,11 +41,13 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Lado direito - Conteúdo */}
+        {/* Conteúdo */}
         <div className={styles.content}>
-          <h2 className={styles.subtitle}>Sobre</h2>
+          <div className={styles.label}>
+            <div className={styles.labelLine}></div>
+            <span className={styles.subtitle}>Sobre</span>
+          </div>
 
-          {/* <h2 className={styles.title}>Clara Franck</h2> */}
           <img src={logo} alt="Logo" className={styles.logo} />
 
           <div className={styles.bio}>
@@ -73,9 +70,24 @@ const About: React.FC = () => {
               transformam momentos em memórias inesquecíveis.
             </p>
           </div>
+
+          <div className={styles.stats}>
+            <div className={styles.stat}>
+              <span className={styles.statNumber}>15+</span>
+              <span className={styles.statLabel}>Anos de experiência</span>
+            </div>
+            <div className={styles.stat}>
+              <span className={styles.statNumber}>6</span>
+              <span className={styles.statLabel}>Empresas</span>
+            </div>
+            <div className={styles.stat}>
+              <span className={styles.statNumber}>∞</span>
+              <span className={styles.statLabel}>Memórias criadas</span>
+            </div>
+          </div>
         </div>
       </div>
-      <img src={loopWhite} alt="Animação" className={styles.loopWhite} />
+      {/* <img src={loopWhite} alt="Animação" className={styles.loopWhite} /> */}
     </section>
   );
 };
