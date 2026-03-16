@@ -1,6 +1,6 @@
 import styles from "./Contact.module.css";
 import { useState } from "react";
-import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+// import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
   const [name, setName] = useState("");

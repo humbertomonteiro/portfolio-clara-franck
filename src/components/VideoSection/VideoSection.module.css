@@ -1,0 +1,229 @@
+/* ===== VIDEO SECTION ===== */
+.section {
+  padding: 8rem 2rem;
+  background: var(--background-darker);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind the video */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(201,169,110,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Header */
+.header {
+  max-width: 900px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.labelLine {
+  width: 40px;
+  height: 1px;
+  background: var(--primary-color);
+}
+
+.sectionTag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--primary-color);
+  font-weight: 400;
+}
+
+.sectionTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+/* Video wrapper */
+.videoWrapper {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+}
+
+/* Decorative corner borders */
+.borderTopLeft {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 50px;
+  height: 50px;
+  border-top: 2px solid var(--primary-color);
+  border-left: 2px solid var(--primary-color);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.borderBottomRight {
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 50px;
+  height: 50px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Thumbnail (before play) */
+.thumbnail {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease, filter 0.5s ease;
+  filter: grayscale(20%) brightness(0.85);
+}
+
+.thumbnail:hover .thumbImg {
+  transform: scale(1.04);
+  filter: grayscale(0%) brightness(0.75);
+}
+
+/* Dark overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5,3,1,0.25) 0%,
+    rgba(5,3,1,0.5) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.thumbnail:hover .overlay {
+  background: rgba(5,3,1,0.55);
+}
+
+/* Play button */
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover .playButton {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Pulsing rings */
+.playRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  opacity: 0.7;
+  animation: ringPulse 2.5s ease-out infinite;
+}
+
+.playRingOuter {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.3);
+  animation: ringPulse 2.5s ease-out infinite 0.5s;
+}
+
+.playIcon {
+  width: 36px;
+  height: 36px;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 1;
+  margin-left: 4px; /* optical centering */
+  filter: drop-shadow(0 0 12px rgba(201,169,110,0.6));
+}
+
+/* "Assistir vídeo" label */
+.watchLabel {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.6);
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.thumbnail:hover .watchLabel {
+  color: var(--primary-color);
+}
+
+/* Iframe (after play) */
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #000;
+}
+
+/* Animations */
+@keyframes ringPulse {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .videoWrapper { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 5rem 1.5rem; }
+  .sectionTitle { font-size: 1.9rem; }
+  .playButton { width: 64px; height: 64px; }
+  .playIcon { width: 28px; height: 28px; }
+}

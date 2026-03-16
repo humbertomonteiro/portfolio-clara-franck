@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import styles from "./About.module.css";
 import claraAboutImage from "../../assets/clara-image.png";
 import logo from "../../assets/logos/logo-name.png";
-import loopWhite from "../../assets/gifs/loop-white.gif";
+// import loopWhite from "../../assets/gifs/loop-white.gif";
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
